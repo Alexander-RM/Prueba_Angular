@@ -1,0 +1,116 @@
+<app-loading *ngIf="loading"></app-loading>
+<div class="container">
+    <div class="content" fxLayout="row wrap">
+        <div fxFlex="100%" [style.margin]="'10px'">
+          <div fxFlex="50%" [ngClass]="media.isActive('xs') ? 'header-acceso-mobile':'header-acceso-simple'">
+            <img src="../../../../assets/img/LogoCIBanco_letraverde.png" Alt="icon" style="height:50px;width:150px;"/> 
+          </div>
+        <div fxFlex="50%" [style.margin-top]="'40px'" fxLayoutAlign="end" fxHide fxShow.gt-sm fxShow.gt-xs>
+            <span class="header-text" style="margin-right: 20px;">{{ 'registration.labels.ya-tiene-cuenta' | translate }}</span>
+            <span class="header-text header-link" routerLink="/login">{{ 'registration.labels.card-titulo' | translate }}</span>
+        </div>
+        <div fxFlex="50%" [style.margin-top]="'20px'" [style.margin-right]="'10px'" fxLayoutAlign="end" fxShow fxHide.gt-sm fxHide.gt-xs>
+          <span class="header-text header-link" [routerLink]="['/login']">{{ 'registration.labels.card-titulo' | translate }}</span>
+        </div>
+        <div [style.margin-right]="'75px'" fxHide fxShow.gt-sm></div>
+        </div>
+    </div>
+  <div [style.margin-top]="'10px'" fxHide fxShow.gt-sm></div>
+  <div class="content" fxLayout="row wrap" fxLayoutAlign="end">
+    <div fxFlex="100%" fxFlex.gt-sm="32%" fxHide fxShow.gt-sm fxShow.gt-xs>
+      <div class="contenedor-header">
+        <span class="body-text-titulo">
+          {{ 'registration.labels.crear-cuenta' | translate }}
+        </span>
+        <br />
+        <br />
+        <span class="body-text-subtitulo"></span>
+      </div>
+    </div>
+    <div fxFlex="100%" fxFlex.gt-sm="650px" class="margin-card">
+      <div fxHide fxShow.gt-sm [style.margin-top]="'20px'"></div>
+      <mat-card [ngClass.xs]="'padding-mobile'">
+        <mat-card-header>
+          <mat-card-title class="card-text-titulo">{{ 'registration.labels.crear-cuenta' | translate }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form class="custom-form" method="post" [formGroup]="formularioRegistro">
+            <div>
+              <mat-form-field appearance="outline" class="form-field-group">
+                <input matInput autocomplete="off" placeholder="{{ 'registration.labels.nombre' | translate }}(s)*" type="text" formControlName="nombre"/>
+                  <mat-error *ngIf="!formularioRegistro.get('nombre')?.hasError('required') && formularioRegistro.get('nombre')?.hasError('pattern')">{{ 'registration.errors.nombre-num-char' | translate }}</mat-error>
+                  <mat-error *ngIf="formularioRegistro.get('nombre')?.hasError('required')">{{ 'registration.errors.campo-requerido' | translate }}</mat-error>
+                  <mat-error *ngIf="!formularioRegistro.get('nombre')?.hasError('pattern') && formularioRegistro.get('nombre')?.hasError('minlength')">{{ 'registration.errors.minlength' | translate }}</mat-error>
+                  <mat-error *ngIf="!formularioRegistro.get('nombre')?.hasError('pattern') && formularioRegistro.get('nombre')?.hasError('maxlength')">{{ 'registration.errors.maxlength' | translate }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row wrap" fxLayoutAlign="space-between">
+              <div fxFlex="100%" fxFlex.gt-sm="49%" fxFlex.gt-xs="49%">
+                <mat-form-field appearance="outline" class="form-field-group">
+                  <input matInput autocomplete="off" placeholder="{{ 'registration.labels.apellido-paterno' | translate }}*" type="text" formControlName="apPaterno"/>
+                    <mat-error *ngIf="!formularioRegistro.get('apPaterno')?.hasError('required') && formularioRegistro.get('apPaterno')?.hasError('pattern')">{{ 'registration.errors.apellido-num-char' | translate }}</mat-error>
+                    <mat-error *ngIf="formularioRegistro.get('apPaterno')?.hasError('required')">{{ 'registration.errors.campo-requerido' | translate }}</mat-error>
+                    <mat-error *ngIf="!formularioRegistro.get('apPaterno')?.hasError('pattern') && formularioRegistro.get('apPaterno')?.hasError('minlength')">{{ 'registration.errors.minlength' | translate }}</mat-error>
+                    <mat-error *ngIf="!formularioRegistro.get('apPaterno')?.hasError('pattern') && formularioRegistro.get('apPaterno')?.hasError('maxlength')">{{ 'registration.errors.maxlength' | translate }}</mat-error>
+                  </mat-form-field>
+              </div>
+              <div fxFlex="100%" fxFlex.gt-sm="49%" fxFlex.gt-xs="49%">
+                <mat-form-field appearance="outline" class="form-field-group">
+                  <input matInput autocomplete="off" placeholder="{{ 'registration.labels.apellido-materno' | translate }}" type="text" formControlName="apMaterno"/>
+                  <mat-error *ngIf="formularioRegistro.get('apMaterno')?.hasError('pattern')">{{ 'registration.errors.apellido-num-char' | translate }}</mat-error>
+                  <mat-error *ngIf="!formularioRegistro.get('apMaterno')?.hasError('pattern') && formularioRegistro.get('apMaterno')?.hasError('maxlength')">{{ 'registration.errors.maxlength' | translate }}</mat-error>
+                  <mat-error *ngIf="!formularioRegistro.get('apMaterno')?.hasError('pattern') && formularioRegistro.get('apMaterno')?.hasError('minlength')">{{ 'registration.errors.minlength' | translate }}</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <mat-form-field appearance="outline" class="form-field-group">
+                <input matInput autocomplete="off" placeholder="{{ 'registration.labels.compania' | translate }}" type="text" formControlName="compania"/>
+                <mat-error *ngIf="formularioRegistro.get('compania')?.hasError('pattern')">{{ 'registration.errors.compania-incorrecta' | translate }}</mat-error>
+                <mat-error *ngIf="!formularioRegistro.get('compania')?.hasError('pattern') && formularioRegistro.get('compania')?.hasError('minlength')">{{ 'registration.errors.minlength' | translate }}</mat-error>
+                <mat-error *ngIf="!formularioRegistro.get('compania')?.hasError('pattern') && formularioRegistro.get('compania')?.hasError('maxlength')">{{ 'registration.errors.maxlength' | translate }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="outline" class="form-field-group">
+                <input matInput autocomplete="off" placeholder="{{ 'registration.labels.correo' | translate }}*" type="text" formControlName="correo"/>
+                <mat-error *ngIf="formularioRegistro.get('correo')?.hasError('pattern') || formularioRegistro.get('correo')?.hasError('email') || formularioRegistro.get('correo')?.hasError('minlength') || formularioRegistro.get('correo')?.hasError('maxlength')">{{ 'registration.errors.capturar-correo' | translate }}</mat-error>
+                <mat-error *ngIf="formularioRegistro.get('correo')?.hasError('required')">{{ 'registration.errors.campo-requerido' | translate }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <div style="display: inline-flex; margin-bottom: 10px;" >
+                <mat-icon style="margin-top: 0px; margin-right: 5px; color:#356495;" *ngIf="true" >{{ 'registration.labels.info' | translate }}</mat-icon>
+                <div>
+                  {{ 'registration.labels.detalles-pasword' | translate }}
+                </div>
+              </div>
+                <mat-form-field appearance="outline" class="form-field-group">
+                  <input matInput autocomplete="off" placeholder="{{ 'registration.labels.contrasenia' | translate }}*" [type]="hidePassword ? 'password' : 'text'" formControlName="password"/>
+                  <mat-error *ngIf="formularioRegistro.get('password')?.hasError('pattern')">{{ 'registration.errors.contrasena-incorrecta' | translate }} </mat-error>
+                  <mat-error *ngIf="formularioRegistro.get('password')?.hasError('required')">{{ 'registration.errors.campo-requerido' | translate }}</mat-error>
+                  <mat-icon matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword" style="cursor: pointer">{{ hidePassword ? "visibility_off" : "visibility"}}</mat-icon>
+                </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="outline" class="form-field-group">
+                <input matInput autocomplete="off" placeholder="{{ 'registration.labels.confirma-contrasenia' | translate }}*" [type]="hideConfirmaPassword ? 'password' : 'text'" formControlName="confirmaPassword"/>
+                <mat-error *ngIf="formularioRegistro.get('confirmaPassword')?.hasError('confirmaPasswordValidator')">{{ 'registration.errors.confirmacion-coincidir' | translate }} </mat-error>
+                <mat-icon matSuffix (click)="hideConfirmaPassword = !hideConfirmaPassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmaPassword" style="cursor: pointer">{{hideConfirmaPassword ? "visibility_off" : "visibility"}}</mat-icon>
+              </mat-form-field>
+            </div>
+            <p>
+              <mat-checkbox formControlName="aceptaTermino"> </mat-checkbox>{{ 'registration.labels.label-crear' | translate }} 
+              <a class="card-text-link" (click)="obtenerTerminosCondiciones()">{{ 'registration.actions.terminos-condiciones' | translate }} </a> y
+              <a class="card-text-link" href="https://www.cibanco.com/es/cibanco/avisodeprivacidad" target="_blank">{{ 'registration.actions.politicas-privacidad' | translate }} </a>
+            </p>
+            <button mat-raised-button type="submit" (click)="onRegister()" color="primary" [disabled]="formularioRegistro.invalid">
+              {{ 'registration.actions.button-crear-cuenta' | translate }}
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div [style.margin-right]="'75px'" fxHide fxShow.gt-sm></div>
+  </div>
+</div>

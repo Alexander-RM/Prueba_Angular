@@ -1,0 +1,27 @@
+<app-loading *ngIf="loading"></app-loading>
+<h1 mat-dialog-title>{{ 'editar-app.labels.titulo-editar' | translate }}</h1>
+<div mat-dialog-content>
+    <form [formGroup]="formEditar" style="max-width: 500px;">
+        <mat-form-field appearance="outline">
+            <input matInput formControlName="nombreApp" placeholder="{{ 'editar-app.labels.nombre-app' | translate }}" [(ngModel)]="dataApp.name">
+            <mat-error *ngIf="formEditar.get('nombreApp')?.hasError('required')">{{ 'stepper-overview.errors.nombre-requerido' | translate }}</mat-error>
+            <mat-error *ngIf="formEditar.get('nombreApp')?.hasError('pattern')">{{ 'stepper-overview.errors.nombre-num-char' | translate }}</mat-error>
+            <mat-error *ngIf="formEditar.get('nombreApp')?.hasError('minlength')">{{ 'stepper-overview.errors.campo-lenght' | translate }}</mat-error>
+            <mat-error *ngIf="formEditar.get('nombreApp')?.hasError('maxlength')">{{ 'stepper-overview.errors.campo-lenght-largo' | translate }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <input matInput formControlName="descripcion" placeholder="{{ 'editar-app.labels.descripcion' | translate }} " [(ngModel)]="dataApp.descripcion">
+            <mat-error *ngIf="formEditar.get('descripcion')?.hasError('required')">{{ 'stepper-overview.errors.nombre-descripcion' | translate }}</mat-error>
+            <mat-error *ngIf="formEditar.get('descripcion')?.hasError('maxlength')">{{ 'stepper-overview.errors.descripcion' | translate }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <input matInput formControlName="url" placeholder="{{ 'editar-app.labels.url' | translate }}" [(ngModel)]="dataApp.url">
+            <mat-error *ngIf="formEditar.get('url')?.hasError('required')">{{ 'stepper-overview.errors.nombre-url' | translate }}</mat-error>
+            <mat-error *ngIf="formEditar.get('url')?.hasError('pattern')">{{ 'stepper-overview.errors.url-correcta' | translate }}</mat-error>
+        </mat-form-field>
+      </form>
+</div>
+<div mat-dialog-actions fxLayoutAlign="end" style="padding: 20px 0px;">
+  <button mat-button class="boton-home" (click)="close(false)" cdkFocusInitial>{{ 'editar-app.actions.cancelar' | translate }}</button>
+  <button mat-button class="boton-home" [disabled]="formEditar.invalid" style="margin-right:0px;" (click)="close(true)">{{ 'editar-app.actions.confirmar' | translate }}</button>
+</div>

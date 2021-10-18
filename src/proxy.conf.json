@@ -1,0 +1,14 @@
+{
+    "/api/*": {
+        "target": "https://mcioback.ciopendev.com",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": false,
+        "headers": {
+            "host": "mcioback.ciopendev.com"
+        },
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}

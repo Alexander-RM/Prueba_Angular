@@ -1,0 +1,33 @@
+<mat-card class="card-app" style="margin-top: 20px;">
+    <mat-card-header>
+        <mat-card-title>{{ app.name }}</mat-card-title>
+        <div fxFlex fxLayoutAlign="end">
+            <button mat-icon-button class="boton-input" (click)="editar()">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button class="boton-input" (click)="eliminar()">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+        <div style="margin: 20px 30px;">
+            <div fxLayout="row wrap" fxLayoutAlign="space-between">
+                <div fxFlex="100%" fxFlex.gt-sm="49%" fxFlex.gt-xs="49%">
+                    <mat-label class="label-text">{{ 'card-app.labels.client-id' | translate }}</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input matInput value="{{ app.clientId }}" disabled>
+                        <mat-icon matSuffix class="boton-input-resumen" ngxClipboard [cbContent]="app.clientId" (cbOnSuccess)="copyText()">content_copy</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="100%" fxFlex.gt-sm="49%" fxFlex.gt-xs="49%">
+                    <mat-label class="label-text">{{ 'card-app.labels.secret-id' | translate }}</mat-label>
+                    <mat-form-field appearance="outline" class="input-accion">
+                        <input matInput value="{{ app.secretId }}" disabled>
+                        <mat-icon matSuffix class="boton-input-resumen" ngxClipboard [cbContent]="app.secretId" (cbOnSuccess)="copyText()">content_copy</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

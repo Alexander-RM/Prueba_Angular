@@ -1,0 +1,73 @@
+<app-loading *ngIf="loading"></app-loading>
+<div fxFlex="100%" fxLayout="row wrap" [ngClass]="media.isActive('xs') ? 'content-home-mobile':'content-home-simple'">
+    <div fxFlex="100%" *ngIf="showHeader">
+        <div class="title-home">{{ 'stepper-overview.labels.title-home' | translate }}</div>
+        <p class="text-home">{{ 'stepper-overview.labels.subtitle-home' | translate }}</p>
+    </div>
+    <div fxFlex>
+        <mat-card [ngClass]="media.isActive('xs') ? 'card-mobile':'card-simple'" >
+            <mat-card-content>
+                <mat-stepper (selectionChange)="selectionChange($event)" linear #stepper [orientation]="media.isActive('xs') ? 'vertical':'horizontal'">
+                    <mat-step [editable]="isEditable" label="1" ><!--Seleccionar servicio-->
+                      <form [formGroup]="firstFormGroup">
+                        <ng-template matStepLabel>{{ 'stepper-overview.labels.step1-selecciona' | translate }}</ng-template>
+                          <p>
+                            {{ 'stepper-overview.labels.label-aviso' | translate }}
+                          </p>
+                        <div style="margin-top: 40px;">
+                          <button mat-button matStepperNext class="boton-home">{{ 'stepper-overview.actions.button-continuar' | translate }} </button>
+                        </div>
+                      </form>
+                    </mat-step>
+                    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable" label="2" ><!--Crear app-->
+                      <form [formGroup]="secondFormGroup" style="max-width: 500px;">
+                        <ng-template matStepLabel>{{ 'stepper-overview.labels.step2-crear' | translate }}</ng-template>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="nombreApp" placeholder="{{ 'stepper-overview.labels.nombre-app' | translate }}" value=nombre>
+                            <mat-error *ngIf="secondFormGroup.get('nombreApp')?.hasError('required')">{{ 'stepper-overview.errors.nombre-requerido' | translate }}</mat-error>
+                            <mat-error *ngIf="secondFormGroup.get('nombreApp')?.hasError('pattern')">{{ 'stepper-overview.errors.nombre-num-char' | translate }}</mat-error>
+                            <mat-error *ngIf="secondFormGroup.get('nombreApp')?.hasError('minlength')">{{ 'stepper-overview.errors.campo-lenght' | translate }}</mat-error>
+                            <mat-error *ngIf="secondFormGroup.get('nombreApp')?.hasError('maxlength')">{{ 'stepper-overview.errors.campo-lenght-largo' | translate }}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="descripcion" placeholder="{{ 'stepper-overview.labels.descripcion' | translate }} " value=descripcion>
+                            <mat-error *ngIf="secondFormGroup.get('descripcion')?.hasError('required')">{{ 'stepper-overview.errors.nombre-descripcion' | translate }}</mat-error>
+                            <mat-error *ngIf="secondFormGroup.get('descripcion')?.hasError('maxlength')">{{ 'stepper-overview.errors.descripcion' | translate }}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="url" placeholder="{{ 'stepper-overview.labels.url' | translate }}">
+                            <mat-error *ngIf="secondFormGroup.get('url')?.hasError('required')">{{ 'stepper-overview.errors.nombre-url' | translate }}</mat-error>
+                            <mat-error *ngIf="secondFormGroup.get('url')?.hasError('pattern')">{{ 'stepper-overview.errors.url-correcta' | translate }}</mat-error>
+                        </mat-form-field>
+                        <div>
+                          <button mat-button matStepperPrevious class="boton-home">{{ 'stepper-overview.actions.button-regresar' | translate }}</button>
+                          <button mat-button matStepperNext class="boton-home" [disabled]="secondFormGroup.invalid" (click)="finalizar()" style="margin-right:0px;">{{ 'stepper-overview.actions.button-finalizar' | translate }}</button>
+                        </div>
+                      </form>
+                    </mat-step>
+                    <mat-step label="3"><!--Resumen-->
+                      <ng-template matStepLabel>{{ 'stepper-overview.labels.step3-resumen' | translate }}</ng-template>
+                      <p>{{ 'stepper-overview.labels.label-aviso-resumen' | translate }}</p>
+                      <div style="margin-top: 40px;max-width: 500px;">
+                        <mat-label class="label-text">{{ 'stepper-overview.labels.client-id' | translate }}</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="" [value]="newClientId" disabled>
+                            <mat-icon matSuffix class="boton-input-resumen" ngxClipboard [cbContent]="newClientId" (cbOnSuccess)="copyText()">content_copy</mat-icon>
+                        </mat-form-field>
+                        <mat-label class="label-text">{{ 'stepper-overview.labels.secret-id' | translate }}</mat-label>
+                        <mat-form-field appearance="outline" class="input-accion">
+                            <input matInput placeholder="" [value]="newSecret" disabled>
+                            <mat-icon matSuffix class="boton-input-resumen" ngxClipboard [cbContent]="newSecret" (cbOnSuccess)="copyText()">content_copy</mat-icon>
+                        </mat-form-field>
+                      </div>
+                    </mat-step>
+                  </mat-stepper>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div fxFlex="30%" fxLayoutAlign="center" fxHide fxShow.gt-sm fxShow.gt-xs>
+          <mat-icon *ngIf="paso=='1'" svgIcon="selecciona_servicio" fxHide fxShow.gt-sm style="width:250px;height:250px;margin:20px 0px;"></mat-icon>
+          <mat-icon *ngIf="paso=='2'" svgIcon="crear_app"  fxHide fxShow.gt-sm style="width:250px;height:250px;margin:20px 0px;"></mat-icon>
+          <mat-icon *ngIf="paso=='3'" svgIcon="resumen" fxHide fxShow.gt-sm style="width:250px;height:250px;margin:20px 0px;"></mat-icon>
+    </div>
+</div>

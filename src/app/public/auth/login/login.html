@@ -1,0 +1,60 @@
+<app-loading *ngIf="loading"></app-loading>
+<div class="container">
+    <div class="content" fxLayout="row wrap">
+        <div fxFlex="100%" [style.margin]="'10px'">
+            <div fxFlex="50%" [ngClass]="media.isActive('xs') ? 'header-acceso-mobile':'header-acceso-simple'">
+                <img src="../../../../assets/img/LogoCIBanco_letraverde.png" Alt="icon" style="height:50px;width:150px;"/> 
+            </div>
+        <div fxFlex="50%" [style.margin-top]="'40px'" fxLayoutAlign="end" fxHide fxShow.gt-sm fxShow.gt-xs>
+            <span class="header-text" style="margin-right: 20px;">{{ 'login.labels.no-tiene-cuenta' | translate }}</span>
+            <span class="header-text header-link" [routerLink]="['/register']">{{ 'login.labels.registrate' | translate }}</span>
+        </div>
+        <div fxFlex="50%" [style.margin-top]="'20px'" [style.margin-right]="'10px'" fxLayoutAlign="end" fxShow fxHide.gt-sm fxHide.gt-xs>
+            <span class="header-text header-link" [routerLink]="['/register']">{{ 'login.labels.registrate' | translate }}</span>
+        </div>
+        <div [style.margin-right]="'75px'" fxHide fxShow.gt-sm></div>
+        </div>
+    </div>
+    <div class="contaniner-login" [style.margin-top]="'10px'" fxHide fxShow.gt-sm></div>
+    <div class="content" fxLayout="row wrap" fxLayoutAlign="end" >
+        <div fxFlex="100%" fxFlex.gt-sm="32%" fxHide fxShow.gt-sm fxShow.gt-xs>
+          <div class="contenedor-header">
+            <span class="body-text-titulo">{{ 'login.labels.titulo' | translate }}</span>
+            <br>
+            <br>
+            <span class="body-text-subtitulo"></span>
+          </div>
+        </div>
+        <div fxFlex="100%" fxFlex.gt-sm="50%" class="margin-card">
+            <div fxHide fxShow.gt-sm [style.margin-top]="'20px'"></div>
+            <mat-card [ngClass.xs]="'padding-mobile'">
+                <mat-card-header>
+                    <mat-card-title class="card-text-titulo">{{ 'login.labels.card-titulo' | translate }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div>
+                        <form class="custom-form" method="post" [formGroup]="formularioAcceso">
+                            <mat-form-field appearance="outline">
+                              <input matInput placeholder="{{ 'login.labels.correo' | translate }}" type="text" maxlength="63" formControlName="correo">
+                              <mat-error *ngIf="formularioAcceso.get('correo')?.hasError('email')">{{ 'login.errors.captura-correo-valido' | translate }}</mat-error>
+                              <mat-error *ngIf="formularioAcceso.get('correo')?.hasError('required')">{{ 'login.errors.captura-correo' | translate }}</mat-error>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                              <input matInput placeholder="{{ 'login.labels.contrasena' | translate }}" [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+                              <mat-error *ngIf="formularioAcceso.get('password')?.hasError('required')">{{ 'login.errors.captura-contrasena' | translate }}</mat-error>
+                              <mat-icon matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword" style="cursor: pointer">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </mat-form-field>
+                          <p>
+                          <mat-error *ngIf="errorAcceso">Error login</mat-error>
+                          </p>
+                          <button mat-raised-button type="submit" (click)="onLogin()" color="primary" [disabled]="formularioAcceso.invalid">{{ 'login.actions.button-inicio-sesion' | translate }}</button>
+                          <div class="card-text-link" fxLayoutAlign="center" style="margin-top: 30px;"><a routerLink="/forgotPassword">{{ 'login.actions.forgot-password' | translate }}</a></div>
+                        </form>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div [style.margin-right]="'75px'" fxHide fxShow.gt-sm></div>
+    </div>
+</div>
+

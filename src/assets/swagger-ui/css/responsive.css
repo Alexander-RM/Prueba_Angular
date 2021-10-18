@@ -1,0 +1,109 @@
+/* Para 480px */  
+@media only screen and (max-width: 500px) and (min-width: 341px) {
+    
+    .swagger-ui .info {
+        margin: 5px 0;
+    }
+
+    .swagger-ui .info .title {
+        width: 100%;
+        line-height: initial;
+    }
+
+    .swagger-ui .info p {
+        font-size: 20px!important;
+        line-height: normal!important;
+    }
+
+    .swagger-ui .opblock-tag .markdown > p {
+        line-height: 1.5!important;
+        font-size: 1.4em !important;
+        letter-spacing: normal;
+        text-align: center;
+        margin: 0px 0px 0px 10px!important;
+    }
+
+    .swagger-ui .info .button-download-json {
+       width: 100% !important;
+    }
+
+    .swagger-ui .opblock .opblock-summary-path {
+        max-width: 100%!important;
+    }
+
+    .swagger-ui .opblock-body select {
+        min-width: 162px!important;
+    }
+
+    .swagger-ui .opblock .opblock-section-header label span {
+        text-align: center;
+    }
+
+    .swagger-ui .table-container {
+        padding: 10px!important;
+    }
+
+    .swagger-ui .responses-inner {
+        padding: 10px!important;
+    }
+
+    .swagger-ui table tbody tr td:first-of-type {
+        min-width: 4em!important; 
+    }
+} 
+
+/* Para 320px */  
+@media only screen and (max-width: 340px) and (min-width: 5px)  { 
+    .swagger-ui .info {
+        margin: 5px 0!important;
+    }
+
+    .swagger-ui .info .title {
+        width: 100% !important;
+        line-height: initial;
+    }
+
+    .swagger-ui .info p {
+        font-size: 20px!important;
+        line-height: normal!important;
+    }
+    
+    .swagger-ui .opblock-tag .markdown > p {
+        line-height: 1.5!important;
+        font-size: 1.4em !important;
+        letter-spacing: normal;
+        text-align: center;
+        margin: 0px 0px 0px 10px!important;
+    }
+
+    .swagger-ui .info .button-download-json {
+        width: 100% !important;
+    }
+
+    .swagger-ui .opblock .opblock-summary-path {
+        max-width: 100%!important;
+    }
+
+    .swagger-ui .opblock-body select {
+        min-width: 162px!important;
+    }
+
+    .swagger-ui .opblock .opblock-section-header {
+        display: block!important;
+    }
+
+    .swagger-ui .opblock .opblock-section-header label span {
+        text-align: center;
+    }
+
+    .swagger-ui .table-container {
+        padding: 10px!important;
+    }
+
+    .swagger-ui .responses-inner {
+        padding: 10px!important;
+    }
+    .swagger-ui table tbody tr td:first-of-type {
+        min-width: 4em!important; 
+    }
+} 

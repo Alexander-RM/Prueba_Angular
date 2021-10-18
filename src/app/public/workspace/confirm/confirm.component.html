@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{ 'confirm-component.labels.titulo-eliminar' | translate }} </h1>
+<div mat-dialog-content>
+  <p>{{ 'confirm-component.labels.desea-eliminar-1' | translate }} "{{ data.appName }}"?</p>
+</div>
+<div mat-dialog-actions fxLayoutAlign="end" style="padding: 20px 0px;">
+  <button mat-button class="boton-home" (click)="close(false)">{{ 'confirm-component.actions.cancelar' | translate }}</button>
+  <button mat-button class="boton-home" style="margin-right:0px;" (click)="close(true)"cdkFocusInitial>{{ 'confirm-component.actions.confirmar' | translate }}</button>
+</div>

@@ -1,0 +1,40 @@
+<app-loading *ngIf="loading"></app-loading>
+<mat-toolbar color="primary">
+    <button mat-icon-button class="linkMenu" style="width: auto;" (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <img src="../../../../assets/img/LogoCIBanco_letrablanca.png " alt="icon" height="40" width="125"/>
+    <div fxShow="true" fxHide.lt-md style="margin-inline-start:20px;" >
+        <button class="opMenu" mat-button routerLink="/home/inicio" routerLinkActive="active">Inicio</button>
+        <button class="opMenu" mat-button routerLink="/home/aplicaciones" routerLinkActive="active">Aplicaciones</button>
+        <button class="opMenu" mat-button routerLink="/home/documentacion" routerLinkActive="active">Documentación</button>
+    </div> 
+    <div fxFlex="100%" fxLayoutAlign="end center">
+        <div fxFlex="85%" fxLayoutAlign="end" fxHide="true" fxShow.gt-sm>
+            <button class="linkMenu"  mat-icon-button style="width: auto;">
+                <mat-icon class="iconMenu">account_circle</mat-icon>
+                Hola, {{ user.nombre }}
+            </button>
+        </div>
+        <div fxFlex fxLayoutAlign="end">
+            <button class="linkMenu" style="text-align: right;" mat-stroked-button [routerLink]="['/home/logout']" >
+                <mat-icon class="iconMenu">logout</mat-icon>
+                Salir
+            </button>
+        </div>
+    </div>
+    
+</mat-toolbar>
+
+<mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+        <mat-nav-list>
+            <a [routerLink]="['/home/inicio']" mat-list-item>Inicio</a>
+            <a [routerLink]="['/home/aplicaciones']" mat-list-item>Aplicaciones</a>
+            <a [routerLink]="['/home/documentacion']" mat-list-item>Documentación</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

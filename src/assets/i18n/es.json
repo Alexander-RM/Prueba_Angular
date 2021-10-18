@@ -1,0 +1,200 @@
+{
+    "login": {
+        "labels":{
+            "no-tiene-cuenta": "¿No tienes cuenta?",
+            "registrate": "Regístrate",
+            "titulo": "Ingresar a Open Banking",
+            "card-titulo": "Iniciar sesión",
+            "correo": "Correo electrónico",
+            "contrasena": "Contraseña"
+        },
+        "actions":{
+            "button-inicio-sesion":"Iniciar sesión",
+            "forgot-password":"Olvidé mi contraseña"
+        },
+        "errors":{
+            "captura-correo-valido":"Es necesario capturar un correo electrónico válido",
+            "captura-correo":"Es necesario capturar un correo electrónico",
+            "captura-contrasena":"Es necesario capturar una contraseña"
+        }
+        
+    },
+    "confirmRegistration":{
+        "labels":{
+            "ya-tiene-cuenta":"¿Ya tienes cuenta?",
+            "card-titulo":"Iniciar sesión",
+            "a-un-paso":"Ya estas a un paso de concluir con el registro de Open Banking. Ingresa el código de verificación que enviamos a tu correo",
+            "codigo-verifica":"Código de verificación"
+        },
+        "actions":{
+            "confirma-registro":"Confirmar registro",
+            "button-inicio-sesion":"Iniciar sesión"
+        },
+        "errors":{
+            "error":"Error de código de verificación"
+        }
+
+    },
+    "forgotPassword":{
+        "labels":{
+            "ya-tiene-cuenta":"¿Ya tienes cuenta?",
+            "card-titulo":"Iniciar sesión",
+            "escribe-correo":"Escribe el correo electrónico asociado a tu cuenta de Open Banking.",
+            "correo-elec":"Correo electrónico"
+        },
+        "actions":{
+            "forgot-password":"Olvidé mi contraseña",
+            "continuar":"Continuar"            
+        },
+        "errors":{
+            "capturar-correo-alta":"Es necesario capturar el correo con el que se dio de alta",
+            "campo-requerido":"Campo requerido"
+        }
+    },
+    "forgotPasswordStep2":{
+        "labels":{
+            "ya-tiene-cuenta":"¿Ya tienes cuenta?",
+            "card-titulo":"Iniciar sesión",
+            "nueva-contrasena":"Nueva contraseña",
+            "label-ayuda":"Esta será la contraseña que utilices cada vez que inicies sesión",
+            "codigo-verifica":"Código de verificación"
+        },
+        "actions":{
+            "button-inicio-sesion":"Iniciar sesión"        
+        },
+        "errors":{
+            "campo-requerido":"Campo requerido",
+            "ingrasa-codigo":"Código requerido"
+        }
+    },
+    "registration":{
+        "labels":{
+            "ya-tiene-cuenta":"¿Ya tienes cuenta?",
+            "card-titulo":"Iniciar sesión",
+            "crear-cuenta":"Crear cuenta",
+            "info":"info",
+            "detalles-pasword":"La contraseña es mínimo de 8 caracteres. Debe tener números, mayúsculas, minúsculas y al menos un caracter especial.",
+            "label-crear":"Al crear una cuenta significa que estas de acuerdo con los",
+            "nombre":"Nombre",
+            "apellido-paterno":"Apellido paterno",
+            "apellido-materno":"Apellido materno",
+            "compania":"Compañía",
+            "correo":"Correo",
+            "contrasenia":"Contraseña",
+            "confirma-contrasenia":"Confirmar contraseña"
+        },
+        "actions":{
+            "button-crear-cuenta":"Crear cuenta",
+            "terminos-condiciones":"términos y condiciones", 
+            "politicas-privacidad":"políticas de privacidad"
+        },
+        "errors":{
+            "error-corto":"El dato es demasiado corto",
+            "campo-requerido":"Campo requerido",
+            "capturar-dato":"Es necesario capturar un dato",
+            "error":"Error",
+            "capturar-correo":"Es necesario capturar un correo electrónico válido",
+            "contrasena-incorrecta":"La contraseña es incorrecta",
+            "confirmacion-coincidir":"La confirmación de contraseña debe coincidir",
+            "nombre-num-char":"El nombre solo puede contener letras",
+            "apellido-num-char":"El apellido solo puede contener letras",
+            "campo-lenght":"El campo es demasiado corto",
+            "minlength": "El campo es demasiado corto",
+            "maxlength": "El campo es demasiado largo",
+            "compania-incorrecta": "La compañía solo puede contener letras"
+        }
+
+    },
+    "resendCode":{
+        "labels":{
+            "reenvio-codigo":"Resend Code",
+            "email":"Email",
+            "registrer":"Register",
+            "login":"Login"
+        },
+        "actions":{
+            "button-resend-code":"Resend Code"       
+        }
+    },
+    "inicio":{
+        "labels":{
+            "card-titulo":"Resumen Mensual",
+            "detalle-resumen":"Estas viendo el resumen de accesos de Septiembre",
+            "numero-accesos":"Número de accesos",
+            "detalle-numero-accesos":"235",
+            "costo-promedio":"Costo promedio por acceso",
+            "detalle-costo-promedio":"$0.00",
+            "costo-total":"Costo total del mes",
+            "detalle-costo-total":"$0.00",
+            "consumo-mensual":"Consumo Mensual",
+            "label-consumo":"Estas viendo gráfica del consumo mensual por semana",
+            "numero-aplicaciones":"Número de aplicaciones",
+            "detalle-numero-aplicaciones":"20",
+            "aplicaciones-uso":"Aplicaciones en uso",
+            "detalle-aplicaciones-uso":"80%",
+            "numero-servicios":"Número de servicios",
+            "detalle-numero-servicios":"100",
+            "servicios-uso":"Servicios en uso",
+            "detalle-servicios-uso":"60%"
+        }
+    },
+    "stepper-overview":{
+        "labels":{
+            "title-home":"Bienvenido a tu espacio Open Banking",
+            "subtitle-home":"Aquí podrás seleccionar los servicios disponibles de CIBanco para implementarlos en tus aplicaciones.",
+            "step1-selecciona":"Seleccionar servicio",
+            "step2-crear":"Crear aplicación",
+            "step3-resumen":"Resumen",
+            "label-aviso":"Por el momento solo esta disponible nuestro servicio de consulta de cajeros automáticos. Para implementarlo necesitas dar de alta tu aplicación.",
+            "label-aviso-resumen":"Tu aplicación ha sido creada con éxito, a continuación te mostramos tus claves de acceso:",
+            "client-id":"Client ID",
+            "secret-id":"Secret ID",
+            "nombre-app":"Nombre de la aplicación",
+            "descripcion":"Descripción",
+            "url":"URL"
+        },
+        "actions":{
+            "button-continuar":"Continuar",
+            "button-regresar":"Regresar",
+            "button-finalizar":"Finalizar" 
+        },
+        "errors":{
+            "nombre-requerido":"Es necesario capturar un nombre",
+            "nombre-descripcion":"Es necesario capturar una descripción",
+            "nombre-url":"Es necesario capturar una URL",
+            "nombre-num-char":"El nombre solo puede contener letras",
+            "campo-lenght":"El campo es demasiado corto",
+            "campo-lenght-largo":"El campo es muy largo",
+            "descripcion":"La descripcion debe ser maximo de 250 caracteres",
+            "url-correcta":"La url debe tener el formato http(s):// "
+        }
+    },
+    "confirm-component":{
+        "labels":{
+            "titulo-eliminar":"Eliminar aplicación",
+            "desea-eliminar-1":"¿Desea eliminar la aplicación"
+        },
+        "actions":{
+            "cancelar":"Cancelar",
+            "confirmar":"Confirmar"
+        }
+    },
+    "editar-app":{
+        "labels":{
+            "titulo-editar":"Editar aplicación",
+            "nombre-app":"Nombre de la aplicación",
+            "descripcion":"Descripción",
+            "url":"URL"
+        },
+        "actions":{
+            "cancelar":"Cancelar",
+            "confirmar":"Confirmar"
+        }
+    },
+    "card-app":{
+        "labels":{
+            "client-id":"Client ID",
+            "secret-id":"Secret ID"
+        }
+    }
+}

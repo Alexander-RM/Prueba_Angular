@@ -1,0 +1,14 @@
+{
+    "/api/*":{
+        "target":"https://smo97oipmd.execute-api.us-east-1.amazonaws.com/Prod",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": false,
+        "headers": {
+            "Host":"smo97oipmd.execute-api.us-east-1.amazonaws.com"
+        },
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}

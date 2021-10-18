@@ -1,0 +1,13 @@
+<app-loading *ngIf="loading"></app-loading>
+<div fxFlex="100%" fxLayout="row wrap" [ngClass]="media.isActive('xs') ? 'content-home-mobile':'content-home-simple'">
+    <div fxFlex="100%" fxLayoutAlign="end">
+        <button mat-button class="boton-home" (click)="toggleApp(showCrearApp)" style="width: 200px;margin-right:0px;">{{ textBotonApp }}</button>
+    </div>
+    <div fxFlex *ngIf="!showCrearApp">
+        <app-card-app *ngFor="let app of arrayApp" [app]="app" (eventoEliminar)="eliminar($event)" (eventoEditar)="editar($event)"></app-card-app>
+
+    </div>
+    <div fxFlex *ngIf="showCrearApp">
+        <app-stepper-overview [showHeader]="false"  [appToUpdate]=appToUpdate></app-stepper-overview>
+    </div>
+</div>
